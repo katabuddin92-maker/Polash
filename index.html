@@ -131,9 +131,20 @@ You are the reason behind my smile. 🌹
 
 const no=document.getElementById("no");
 
-no.addEventListener("mouseover",()=>{
-no.style.left=Math.random()*(window.innerWidth-100)+"px";
-no.style.top=Math.random()*(window.innerHeight-60)+"px";
+function moveNoButton() {
+    no.style.position = "fixed";
+    no.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    no.style.top = Math.random() * (window.innerHeight - 60) + "px";
+}
+
+no.addEventListener("mouseover", moveNoButton);
+no.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    moveNoButton();
+});
+no.addEventListener("click", function(e) {
+    e.preventDefault();
+    moveNoButton();
 });
 
 document.getElementById("yes").onclick=()=>{
